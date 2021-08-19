@@ -25,7 +25,7 @@ SECRET_KEY = 'p35!xgl&_9l1zct0adqh2@&0im!s%_0d#3u95h5+p!s%u^*^tt'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['totalizator.pythonanywhere.com']
+ALLOWED_HOSTS = ['totalizator.pythonanywhere.com', '127.0.0.1']
 
 
 # Application definition
@@ -34,9 +34,16 @@ INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
+    'django.contrib.sites',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # AllAuth
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+
     'main'
 ]
 
@@ -81,6 +88,9 @@ DATABASES = {
     }
 }
 
+STATICFILES_DIRS = [
+    os.path.join("static"),
+]
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
@@ -118,4 +128,26 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 STATIC_URL = '/static/'
+
+ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_USER_MODEL_USERNAME_FIELD = 'email'
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+ACCOUNT_USERNAME_REQUIRED = True
+ACCOUNT_ADAPTER = 'main.adapter.AccountAdapter'
+ACCOUNT_USERNAME_VALIDATORS = 'main.validators.custom_username_validators'
+ACCOUNT_LOGOUT_REDIRECT_URL = '/'
+
+ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 1
+ACCOUNT_USERNAME_MIN_LENGTH = 4
+LOGIN_REDIRECT_URL = '/'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_HOST_USER = "yev.golovchak@gmail.com"
+EMAIL_HOST_PASSWORD = 'uikixwvbqzxpifov'
+EMAIL_PORT = 465
+EMAIL_USE_SSL = True
