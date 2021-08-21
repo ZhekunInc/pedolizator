@@ -1,0 +1,26 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.navbar-menu .nav-borders .nav-item {
+    height: 47px;
+}
+
+.navbar-menu .nav-borders .active {
+    border-bottom: 1px solid white;
+}
+
+.navbar-menu .nav-borders .active-home {
+    pointer-events: none;
+}
+
+.navbar-menu .nav-borders .nav-item .nav-link {
+    color: #fff !important;
+    font-size: 20px;
+    transition: 0.5s;
+}
+
+.navbar-menu .nav-borders .nav-item:hover {
+    border-bottom: 1px solid white;
+    transition: 0.5s;
+}

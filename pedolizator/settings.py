@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    # AllAuth
+    # allauth
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -62,7 +62,9 @@ ROOT_URLCONF = 'pedolizator.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            os.path.join(BASE_DIR, 'main', 'templates'),
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -74,6 +76,7 @@ TEMPLATES = [
         },
     },
 ]
+SITE_ID = 1
 
 WSGI_APPLICATION = 'pedolizator.wsgi.application'
 
@@ -114,9 +117,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'uk-UA'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Kiev'
 
 USE_I18N = True
 
@@ -154,3 +157,5 @@ EMAIL_HOST_USER = "yev.golovchak@gmail.com"
 EMAIL_HOST_PASSWORD = 'uikixwvbqzxpifov'
 EMAIL_PORT = 465
 EMAIL_USE_SSL = True
+
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'

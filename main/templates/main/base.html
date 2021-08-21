@@ -2,57 +2,81 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title></title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'font-awesome/css/all.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/global.css' %}">
     <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
 </head>
-<body>
-    <div class="container">
-        <div id="header" class="header">
-            <div class="auth text-end">
-                {% if user.is_authenticated %}
-                    <span>{% trans "Welcome back, " %} {{ user.username }}</span>
 
-                    <a title="{% trans 'Logout' %}" href="{% url 'account_logout' %}">
-                        {% trans "Logout" %}
-                    </a>
+<body>
+    <div id="header" class="header">
+        <div class="container">
+            <div class="auth text-end pt-1 pb-1">
+                {% if user.is_authenticated %}
+                <span class="me-3 text-dark">{% trans "Welcome back, " %} {{ user.username }}</span>
+
+                <a class="text-dark text-decoration-none" title="{% trans 'Logout' %}" href="{% url 'account_logout' %}">
+                    <i class="fas fa-sign-out-alt"></i>
+                    {% trans "Logout" %}
+                </a>
                 {% else %}
-                    <a title="{% trans 'Login' %}" href="{% url 'account_login' %}">
-                        {% trans "Login" %}
-                    </a>
-                    <a title="{% trans 'Sign Up' %}" href="{% url 'account_signup' %}">
-                        {% trans "Sign Up" %}
-                    </a>
+                <a class="me-3 text-dark text-decoration-none" title="{% trans 'Login' %}" href="{% url 'account_login' %}">
+                    <i class="fas fa-sign-in-alt"></i>
+                    {% trans "Login" %}
+                </a>
+                <a class="text-dark text-decoration-none" title="{% trans 'Sign Up' %}" href="{% url 'account_signup' %}">
+                    <i class="fas fa-user-plus"></i>
+                    {% trans "Sign Up" %}
+                </a>
                 {% endif %}
             </div>
-            <nav class="navbar navbar-expand-lg navbar-light">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
         </div>
 
+        <div class="bg-dark">
+            <div class="container">
+                <nav class="navbar navbar-expand-lg navbar-dark">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse navbar-menu" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0 nav-borders w-100 d-flex justify-content-between">
+                            <li class="nav-item">
+                                <a class="nav-link {% if is_homepage %}active active-home {% endif %}" aria-current="page" href="{% url 'home_page' %}">{% trans 'Home' %}</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">{% trans 'History' %}</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">{% trans 'Rules' %}</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">{% trans 'Hall of Fame' %}</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
         {% block content %}
         {% endblock %}
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <script src="{% static 'bootstrap/js/bootstrap.js' %}"></script>
+    <script src="{% static 'font-awesome/js/all.min.js' %}"></script>
 
 </body>
+
 </html>
