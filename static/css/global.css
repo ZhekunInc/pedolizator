@@ -46,3 +46,25 @@ body {
     padding: 10px 5px !important;
     font-size: 18px;
 }
+
+.main {
+    min-height: calc(100vh - 225px);
+}
+
+.footer {
+    margin-top: 25px;
+    height: 55px;
+    background: rgb(21, 19, 19);
+    text-align: center;
+    color: white;
+}
+  
+.footer p {
+    padding-top: 17px;
+    padding-bottom: 0;
+    text-transform: uppercase;
+}
+  
+.footer a {
+    color: white;
+}
