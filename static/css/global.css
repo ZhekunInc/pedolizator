@@ -24,3 +24,25 @@ body {
     border-bottom: 1px solid white;
     transition: 0.5s;
 }
+
+.all-account-pages {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.all-account-form input[type='text'],
+.all-account-form input[type='password'],
+.all-account-form input[type='email'] {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+
+.all-account-form input[type='checkbox']{
+    margin-bottom: 15px;
+}
+
+.btn-account {
+    padding: 10px 5px !important;
+    font-size: 18px;
+}

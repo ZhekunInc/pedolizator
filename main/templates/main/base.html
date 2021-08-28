@@ -20,20 +20,23 @@
         <div class="container">
             <div class="auth text-end pt-1 pb-1">
                 {% if user.is_authenticated %}
-                <span class="me-3 text-dark">{% trans "Welcome back, " %} {{ user.username }}</span>
+                <span class="me-3 text-dark">{% trans "З поверненням, " %} {{ user.username }}</span>
 
-                <a class="text-dark text-decoration-none" title="{% trans 'Logout' %}" href="{% url 'account_logout' %}">
+                <a class="text-dark text-decoration-none" title="{% trans 'Logout' %}"
+                    href="{% url 'account_logout' %}">
                     <i class="fas fa-sign-out-alt"></i>
-                    {% trans "Logout" %}
+                    {% trans "Вихід" %}
                 </a>
                 {% else %}
-                <a class="me-3 text-dark text-decoration-none" title="{% trans 'Login' %}" href="{% url 'account_login' %}">
+                <a class="me-3 text-dark text-decoration-none" title="{% trans 'Login' %}"
+                    href="{% url 'account_login' %}">
                     <i class="fas fa-sign-in-alt"></i>
-                    {% trans "Login" %}
+                    {% trans "Увійти" %}
                 </a>
-                <a class="text-dark text-decoration-none" title="{% trans 'Sign Up' %}" href="{% url 'account_signup' %}">
+                <a class="text-dark text-decoration-none" title="{% trans 'Sign Up' %}"
+                    href="{% url 'account_signup' %}">
                     <i class="fas fa-user-plus"></i>
-                    {% trans "Sign Up" %}
+                    {% trans "Зареєструватись" %}
                 </a>
                 {% endif %}
             </div>
@@ -43,23 +46,24 @@
             <div class="container">
                 <nav class="navbar navbar-expand-lg navbar-dark">
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                        aria-label="Toggle navigation">
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse navbar-menu" id="navbarSupportedContent">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0 nav-borders w-100 d-flex justify-content-between">
                             <li class="nav-item">
-                                <a class="nav-link {% if is_homepage %}active active-home {% endif %}" aria-current="page" href="{% url 'home_page' %}">{% trans 'Home' %}</a>
+                                <a class="nav-link {% if is_homepage %}active active-home {% endif %}"
+                                    aria-current="page" href="{% url 'home_page' %}">{% trans 'Домівка' %}</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">{% trans 'History' %}</a>
+                                <a class="nav-link" href="#">{% trans 'Історія' %}</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">{% trans 'Rules' %}</a>
+                                <a class="nav-link" href="#">{% trans 'Правила' %}</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">{% trans 'Hall of Fame' %}</a>
+                                <a class="nav-link" href="#">{% trans 'Зала слави' %}</a>
                             </li>
                         </ul>
                     </div>
