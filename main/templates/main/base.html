@@ -60,8 +60,8 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="#">{% trans 'Історія' %}</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">{% trans 'Правила' %}</a>
+                            <li class="nav-item {% if is_rules_page %}active active-home {% endif %}">
+                                <a class="nav-link" href="{% url 'rules' %}">{% trans 'Правила' %}</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">{% trans 'Зала слави' %}</a>

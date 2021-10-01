@@ -10,4 +10,12 @@ urlpatterns = [
         ),
         name='home_page'
     ),
+    path(
+        'rules/',
+        TemplateView.as_view(
+            template_name='main/rules.html',
+            get_context_data=lambda: {'is_rules_page': True}
+        ),
+        name='rules'
+    ),
 ]
