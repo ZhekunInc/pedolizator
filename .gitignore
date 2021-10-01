@@ -1,92 +1,134 @@
-
-# python files
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.pyc
 *.py[cod]
-
-# svc
-*.orig
-*.rej
+*$py.class
 
 # C extensions
 *.so
 
-# Packages
-*.egg
-*.egg-info
-/dist
-/build
-/eggs
-/parts
-/bin
-/var
-/sdist
-/develop-eggs
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
 .installed.cfg
-/lib
-/lib64
-/venv
-/venv3
-.DS_Store
-__pycache__
+*.egg
+MANIFEST
+
+# PyInstaller
+#  Usually these files are written by a python script from a template
+#  before PyInstaller builds the exe, so as to inject date/other infos into it.
+*.manifest
+*.spec
 
 # Installer logs
-/pip-log.txt
+pip-log.txt
+pip-delete-this-directory.txt
 
 # Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
 .coverage
-.tox
-/nosetests.xml
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
 
-.project
-.pydevproject
-.settings/
+# Django stuff:
+*.log
+local_settings.py
+#db.sqlite3
+db.sqlite3-journal
 
-# Sublime files
-*.sublime-project
-*.sublime-workspace
-*.sublime-project.favorites
+# Flask stuff:
+instance/
+.webassets-cache
 
-# Local settings
-/allstatic/
-/env
-/emails/
-/media/
-/help-man/
+# Scrapy stuff:
+.scrapy
 
-tmp
+# Sphinx documentation
+docs/_build/
 
-*.pyc
-*.wsgi
-*.swp
-*.tar
-.ropeproject
-.venv
+# PyBuilder
+target/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
+
+# pyenv
+.python-version
+
+# pipenv
+#   According to pypa/pipenv#598, it is recommended to include Pipfile.lock in version control.
+#   However, in case of collaboration, if having platform-specific dependencies or dependencies
+#   having no cross-platform support, pipenv may install dependencies that don't work, or not
+#   install all needed dependencies.
+#Pipfile.lock
+
+# PEP 582; used by e.g. github.com/David-OConnor/pyflow
+__pypackages__/
+
+# Celery stuff
+celerybeat-schedule
+celerybeat.pid
+
+# SageMath parsed files
+*.sage.py
+
+# Environments
+.env3
 .venv3
+env3/
+venv3/
+ENV/
+env.bak/
+venv.bak/
 
+# Spyder project settings
+.spyderproject
+.spyproject
 
-project_src/secret.txt
-project_src/settings/secret.txt
-project_src/settings/local.py
-project_src/settings_local.py
-src/project_src/static/CACHE
-settings_local.py
-static/CACHE
-logs
-tmp
+# Rope project settings
+.ropeproject
 
-src/apps/bshop/contrib/store/settings/google_drive_creds.txt
-src/project_src/secret.txt
-src/project_src/settings/secret.txt
-src/project_src/settings/local.py
-src/project_src/settings_local.py
-src/settings_local.py
-src/static/CACHE
-src/allstatic/
-src/media/
-src/mediawebp/
-src/logs/
-src/tmp/
-src/celerybeat-schedule.*
+# mkdocs documentation
+/site
 
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# Text backup files
+*.bak
+
+#Database
 *.sqlite3
-/.idea/
-.idea/*
+
+media/
