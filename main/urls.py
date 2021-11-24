@@ -1,5 +1,6 @@
-from django.urls import path, include
+from django.urls import path
 from django.views.generic import TemplateView
+from .views import HistoryList
 
 urlpatterns = [
     path(
@@ -18,4 +19,7 @@ urlpatterns = [
         ),
         name='rules'
     ),
+    path(
+        'history/', HistoryList.as_view(), name="history"
+    )
 ]

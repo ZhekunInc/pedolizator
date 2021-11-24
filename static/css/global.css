@@ -1,3 +1,5 @@
+/********** BASE **********/
+
 body {
     font-family: 'Open Sans', sans-serif;
 }
@@ -67,4 +69,14 @@ body {
   
 .footer a {
     color: white;
+}
+
+/********** RULES **********/
+
+.rules div ul {
+    list-style: none;
+}
+
+.rules div ul li {
+    font-size: 24px;
 }

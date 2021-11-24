@@ -58,7 +58,7 @@
                                     aria-current="page" href="{% url 'home_page' %}">{% trans 'Домівка' %}</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">{% trans 'Історія' %}</a>
+                                <a class="nav-link" href="{% url 'history' %}">{% trans 'Історія' %}</a>
                             </li>
                             <li class="nav-item {% if is_rules_page %}active active-home {% endif %}">
                                 <a class="nav-link" href="{% url 'rules' %}">{% trans 'Правила' %}</a>
