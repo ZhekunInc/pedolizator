@@ -25,7 +25,7 @@ SECRET_KEY = 'p35!xgl&_9l1zct0adqh2@&0im!s%_0d#3u95h5+p!s%u^*^tt'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['totalizator.pythonanywhere.com', '127.0.0.1']
+ALLOWED_HOSTS = ['totalizator.pythonanywhere.com', '127.0.0.1', '192.168.1.111']
 
 
 # Application definition

@@ -115,14 +115,11 @@ class Forecast(TimeStampModel):
         verbose_name_plural = ("forecasts")
 
     def __str__(self):
-        return self.match
+        return self.match.title
 
 
 class Standing(TimeStampModel):
 
-    title = models.CharField(
-        verbose_name=('Title'), max_length=512, db_index=True
-    )
     user = models.ForeignKey(
         'auth.User', related_name='standing',
         verbose_name=('user'), on_delete=models.CASCADE,
@@ -140,4 +137,4 @@ class Standing(TimeStampModel):
         verbose_name_plural = ("standings")
 
     def __str__(self):
-        return self.title
+        return self.season.title
