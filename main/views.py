@@ -1,6 +1,24 @@
-from django.shortcuts import render
+
+from django.utils import timezone
 from django.views.generic import ListView
-from .models import Season
+from datetime import datetime
+from .models import Season, Stage
+
+
+class HomePageView(ListView):
+    template_name = 'main/homepage.html'
+    context_object_name = "stages"
+
+    def get_queryset(self):
+        print(datetime.now())
+        qs = Stage.objects.filter(match__end_at__gte=timezone.now())
+        print(qs)
+        return qs
+
+    def get_context_data(self, **kwargs):
+        ctx = super().get_context_data(**kwargs)
+        ctx['is_homepage'] = True
+        return ctx
 
 
 class HistoryList(ListView):

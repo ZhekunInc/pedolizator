@@ -75,10 +75,10 @@ class Match(TimeStampModel):
         verbose_name=('Slug'), max_length=512, db_index=True, unique=True
     )
     result_1 = models.PositiveIntegerField(
-        verbose_name='First team score:'
+        verbose_name='First team score:', default=0
     )
     result_2 = models.PositiveIntegerField(
-        verbose_name='Second team score:'
+        verbose_name='Second team score:', default=0
     )
     stage = models.ForeignKey(
         'stage', related_name='match',
@@ -107,10 +107,10 @@ class Forecast(TimeStampModel):
         verbose_name=('user'), on_delete=models.CASCADE,
     )
     forecast_1 = models.PositiveIntegerField(
-        verbose_name='Forecast for first team:'
+        verbose_name='Forecast for first team:', default=0
     )
     forecast_2 = models.PositiveIntegerField(
-        verbose_name='Forecast for second team:'
+        verbose_name='Forecast for second team:', default=0
     )
     is_X2 = models.BooleanField(
         ("Is supermatch?"), default=False

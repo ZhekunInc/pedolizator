@@ -1,16 +1,9 @@
 from django.urls import path
 from django.views.generic import TemplateView
-from .views import HistoryList
+from .views import HomePageView, HistoryList
 
 urlpatterns = [
-    path(
-        '',
-        TemplateView.as_view(
-            template_name='main/homepage.html',
-            get_context_data=lambda: {'is_homepage': True}
-        ),
-        name='home_page'
-    ),
+    path('', HomePageView.as_view(), name='home_page'),
     path(
         'rules/',
         TemplateView.as_view(

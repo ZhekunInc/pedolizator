@@ -1,5 +1,18 @@
 {% extends "./base.html" %}
 
 {% block content %}
-    <h1 class="mt-5">TEST!!!</h1>
+    
+    {% if stages %}
+        {% for stage in stages %}
+            {{ stage }}
+
+            {% if stage.match.all %}
+                {% for match in stage.match.all %}
+                    {{ match.title }}
+                {% endfor %}   
+            {% endif %}
+                
+        {% endfor %}
+    {% endif %}
+        
 {% endblock %}
