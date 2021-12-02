@@ -4,8 +4,17 @@
     <section class="history">
         
         {% for season in seasons %}
-            {{ season }}
+            {{ season.title }}
+        
+            {% if season.get_standing %}
+                
+                {% for standing in season.get_standing %}
+                    {{ standing.user }} - {{ standing.points }}
+                {% endfor %}
+                    
+            {% endif %}
         {% endfor %}
+            
             
     </section>
 {% endblock %}

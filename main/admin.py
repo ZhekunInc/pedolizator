@@ -1,7 +1,10 @@
 from django.contrib import admin
-from .models import Season, Stage, Match, Forecast, Standing
+from .models import Season, Stage, Match, Forecast, SeasonStanding
 
-# Register your models here.
+
+class SeasonStandingInlinePost(admin.TabularInline):
+    model = SeasonStanding
+    extra = 0
 
 
 @admin.register(Season)
@@ -13,6 +16,7 @@ class SeasonAdmin(admin.ModelAdmin):
     search_fields = ['title']
     ordering = ('title',)
     prepopulated_fields = {'slug': ('title',)}
+    inlines = [SeasonStandingInlinePost]
 
 
 @admin.register(Stage)
@@ -47,11 +51,11 @@ class ForecastAdmin(admin.ModelAdmin):
     ordering = ('match',)
 
 
-@admin.register(Standing)
-class StandingAdmin(admin.ModelAdmin):
-    list_display = (
-        'season', 'points'
-    )
-    list_filter = ('is_published',)
-    search_fields = ['season']
-    ordering = ('season',)
+# @admin.register(Standing)
+# class StandingAdmin(admin.ModelAdmin):
+#     list_display = (
+#         'user', 'points'
+#     )
+#     list_filter = ('is_published',)
+#     search_fields = ['season']
+#     ordering = ('season',)

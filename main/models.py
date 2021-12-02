@@ -1,3 +1,4 @@
+import os
 from django.db import models
 from django.utils import timezone
 
@@ -37,6 +38,11 @@ class Season(TimeStampModel):
 
     def __str__(self):
         return self.title
+
+    def get_standing(self):
+        return SeasonStanding.objects.filter(
+            season_id=self.pk
+        ).order_by('-points')
 
 
 class Stage(TimeStampModel):
@@ -118,23 +124,27 @@ class Forecast(TimeStampModel):
         return self.match.title
 
 
-class Standing(TimeStampModel):
+class SeasonStanding(models.Model):
 
-    user = models.ForeignKey(
-        'auth.User', related_name='standing',
-        verbose_name=('user'), on_delete=models.CASCADE,
-    )
     season = models.ForeignKey(
         'Season', related_name='standing',
         verbose_name=('season'), on_delete=models.CASCADE,
     )
-    points = models.PositiveIntegerField(
-        verbose_name='Total points'
+    user = models.ForeignKey(
+        'auth.User', related_name='standing',
+        verbose_name=('user'), on_delete=models.CASCADE,
     )
+    points = models.PositiveIntegerField(
+        verbose_name='Total points', default=0
+    )
+
+    def get_extension(self):
+        file_extension = os.path.splitext(self.seasonstanding.path)
+        return file_extension[1]
+
+    def get_filename(self):
+        return os.path.basename(self.seasonstanding.name)
 
     class Meta:
         verbose_name = ("standing")
         verbose_name_plural = ("standings")
-
-    def __str__(self):
-        return self.season.title
